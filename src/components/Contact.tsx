@@ -75,7 +75,6 @@ export function Contact() {
                 <span className="channel-card__icon">{channel.icon}</span>
                 <span className="channel-card__meta">
                   <span className="channel-card__label caption">{channel.label}</span>
-                  <span className="channel-card__value">{channel.value}</span>
                 </span>
               </a>
             </li>
