@@ -77,7 +77,7 @@ export function Nav() {
         </ul>
 
         <a className="nav__phone btn-dark-utility" href={profile.whatsappHref}>
-          {profile.phone}
+          WhatsApp me
         </a>
       </nav>
     </header>
