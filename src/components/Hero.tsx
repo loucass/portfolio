@@ -1,9 +1,12 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { SplitText } from 'gsap/SplitText'
 import { profile } from '../data/content'
 import { scrollToId } from '../hooks/useLenis'
 import { prefersReducedMotion } from '../lib/anim'
 import { DownloadIcon, MapPinIcon } from './Icons'
+
+gsap.registerPlugin(SplitText)
 
 export function Hero() {
   const rootRef = useRef<HTMLElement>(null)
@@ -13,17 +16,35 @@ export function Hero() {
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.15 })
-      tl.from('[data-hero-line]', {
-        y: 42,
+
+      // Headline: every character rises out of its mask, left to right.
+      const split = SplitText.create('[data-hero-headline]', {
+        type: 'chars',
+        mask: 'chars',
+      })
+      tl.from(split.chars, {
+        yPercent: 112,
         autoAlpha: 0,
-        duration: 1,
+        duration: 0.8,
         ease: 'power3.out',
-        stagger: 0.12,
-      }).from(
-        '[data-hero-cta]',
-        { y: 20, autoAlpha: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1 },
-        '-=0.5',
-      )
+        stagger: 0.02,
+      })
+        .from(
+          '[data-hero-line]',
+          {
+            y: 42,
+            autoAlpha: 0,
+            duration: 1,
+            ease: 'power3.out',
+            stagger: 0.12,
+          },
+          '-=0.5',
+        )
+        .from(
+          '[data-hero-cta]',
+          { y: 20, autoAlpha: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1 },
+          '-=0.5',
+        )
       gsap.from('[data-hero-status]', {
         autoAlpha: 0,
         scale: 0.9,
@@ -54,14 +75,14 @@ export function Hero() {
         <p className="hero__caption caption" data-hero-line>
           {profile.role}
         </p>
-        <h1 className="hero__headline hero-display">
-          <span className="hero__line hero__name" data-hero-line>
+        <h1 className="hero__headline hero-display" data-hero-headline>
+          <span className="hero__line">
             Lucas Monir.
           </span>
-          <span className="hero__line" data-hero-line>
+          <span className="hero__line">
             Systems that stay fast,
           </span>
-          <span className="hero__line" data-hero-line>
+          <span className="hero__line">
             consistent &amp; correct.
           </span>
         </h1>
