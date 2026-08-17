@@ -55,7 +55,7 @@ export function Hero() {
           {profile.role}
         </p>
         <h1 className="hero__headline hero-display">
-          <span className="hero__line hero-display" data-hero-line>
+          <span className="hero__line hero__name" data-hero-line>
             Lucas Monir.
           </span>
           <span className="hero__line" data-hero-line>
