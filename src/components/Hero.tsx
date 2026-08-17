@@ -25,9 +25,9 @@ export function Hero() {
       tl.from(split.chars, {
         yPercent: 112,
         autoAlpha: 0,
-        duration: 0.8,
+        duration: 1.2,
         ease: 'power3.out',
-        stagger: 0.02,
+        stagger: 0.025,
       })
         .from(
           '[data-hero-line]',
