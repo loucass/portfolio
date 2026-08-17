@@ -952,7 +952,7 @@ button {
   color: var(--ink-muted-80);
   font-size: var(--text-caption);
   line-height: 1.29;
-  border-radius: var(--r-md);
+  border-radius: var(--r-pill);
   padding: 4px 10px;
 }
 
