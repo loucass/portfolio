@@ -1,0 +1,74 @@
+:root {
+  /* ─── Apple design tokens (from DESIGN-apple.md) ─── */
+
+  /* colors */
+  --primary: #0066cc;            /* Action Blue — the ONE interactive color */
+  --primary-focus: #0071e3;      /* focus rings */
+  --primary-on-dark: #2997ff;    /* links on dark surfaces only */
+  --ink: #1d1d1f;
+  --ink-muted-80: #333333;
+  --ink-muted-48: #7a7a7a;
+  --body-on-dark: #ffffff;
+  --body-muted: #cccccc;
+  --divider-soft: #f0f0f0;
+  --hairline: #e0e0e0;
+  --canvas: #ffffff;
+  --canvas-parchment: #f5f5f7;
+  --surface-pearl: #fafafc;
+  --surface-tile-1: #272729;
+  --surface-tile-2: #2a2a2c;
+  --surface-tile-3: #252527;
+  --surface-black: #000000;
+
+  /* typography (SF Pro substitute: system-ui + Inter) */
+  --font-display: "SF Pro Display", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-text: "SF Pro Text", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-hero: clamp(34px, 6vw, 56px);
+  --text-display-lg: clamp(28px, 4vw, 40px);
+  --text-display-md: clamp(24px, 3vw, 34px);
+  --text-lead: clamp(19px, 2.5vw, 28px);
+  --text-lead-airy: clamp(18px, 2.2vw, 24px);
+  --text-tagline: clamp(18px, 2vw, 21px);
+  --text-body: 17px;
+  --text-body-strong: 17px;
+  --text-caption: 14px;
+  --text-button-large: 18px;
+  --text-button-utility: 14px;
+  --text-fine-print: 12px;
+  --text-micro-legal: 10px;
+  --text-nav-link: 12px;
+
+  --lh-hero: 1.07;
+  --lh-display-lg: 1.1;
+  --lh-display-md: 1.47;
+  --lh-lead: 1.14;
+  --lh-lead-airy: 1.5;
+  --lh-tagline: 1.19;
+  --lh-body: 1.47;
+  --lh-dense: 2.41;
+
+  /* radius */
+  --r-sm: 8px;
+  --r-md: 11px;
+  --r-lg: 18px;
+  --r-pill: 9999px;
+
+  /* spacing */
+  --s-xxs: 4px;
+  --s-xs: 8px;
+  --s-sm: 12px;
+  --s-md: 17px;
+  --s-lg: 24px;
+  --s-xl: 32px;
+  --s-xxl: 48px;
+  --s-section: 80px;
+
+  /* the one shadow — product imagery only */
+  --shadow-product: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
+
+  /* layout */
+  --nav-h: 44px;
+  --content-max: 980px;
+  --grid-max: 1440px;
+}
