@@ -11,8 +11,8 @@ export function Projects() {
   useEffect(() => {
     if (prefersReducedMotion()) return
     const ctx = gsap.context(() => {
-      // Project cards assemble from scattered positions as the section
-      // scrolls into view.
+      // Project cards assemble from scattered positions as the grid enters
+      // the viewport — fully collected well before reaching the top.
       gsap.from('.project-card', {
         xPercent: () => gsap.utils.random(-18, 18),
         yPercent: () => gsap.utils.random(-40, 25),
@@ -22,9 +22,9 @@ export function Projects() {
         stagger: 0.07,
         clearProps: 'transform,opacity,visibility',
         scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 80%',
-          end: 'center 45%',
+          trigger: '.projects__grid',
+          start: 'top 92%',
+          end: 'top 45%',
           scrub: 0.5,
         },
       })

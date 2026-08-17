@@ -32,8 +32,8 @@ export function Specs() {
   useEffect(() => {
     if (prefersReducedMotion()) return
     const ctx = gsap.context(() => {
-      // The category cards assemble from scattered positions as the
-      // section scrolls into view.
+      // The category cards assemble from scattered positions as the grid
+      // enters the viewport — fully collected well before reaching the top.
       gsap.from('.spec-card', {
         xPercent: () => gsap.utils.random(-22, 22),
         yPercent: () => gsap.utils.random(-55, 30),
@@ -43,9 +43,9 @@ export function Specs() {
         stagger: 0.05,
         clearProps: 'transform,opacity,visibility',
         scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 78%',
-          end: 'center 40%',
+          trigger: '.specs__grid',
+          start: 'top 92%',
+          end: 'top 45%',
           scrub: 0.5,
         },
       })
