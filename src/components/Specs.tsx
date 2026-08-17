@@ -1,7 +1,8 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
+import gsap from 'gsap'
 import { featuredStack, specGroups } from '../data/content'
-import { useSectionReveal } from '../lib/anim'
+import { prefersReducedMotion, useSectionReveal } from '../lib/anim'
 import {
   BoxIcon,
   CodeIcon,
@@ -27,6 +28,39 @@ const categoryMeta: Record<string, { color: string; icon: ReactNode }> = {
 export function Specs() {
   const ref = useRef<HTMLElement>(null)
   useSectionReveal(ref)
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return
+    const ctx = gsap.context(() => {
+      // The core-stack pills assemble from scattered positions while the
+      // block is pinned for one viewport of scroll.
+      gsap.to('[data-pin]', {
+        scrollTrigger: {
+          trigger: '.specs__pin',
+          start: 'top 75%',
+          end: 'bottom 45%',
+          pin: true,
+          scrub: 0.5,
+        },
+      })
+      gsap.from('.spec-pill', {
+        xPercent: () => gsap.utils.random(-80, 80),
+        yPercent: () => gsap.utils.random(-200, 80),
+        rotation: () => gsap.utils.random(-35, 35),
+        autoAlpha: 0,
+        ease: 'none',
+        stagger: 0.04,
+        clearProps: 'transform,opacity,visibility',
+        scrollTrigger: {
+          trigger: '.specs__pin',
+          start: 'top 75%',
+          end: 'bottom 45%',
+          scrub: 0.5,
+        },
+      })
+    }, ref)
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section ref={ref} className="tile tile--parchment specs" id="specs" aria-label="Specifications">
@@ -62,24 +96,26 @@ export function Specs() {
           })}
         </ul>
 
-        <div className="specs__featured" data-reveal>
-          <p className="caption specs__featured-title">Core stack</p>
-          <ul className="specs__pills">
-            {featuredStack.map((tech) => (
-              <li
-                className="spec-pill"
-                key={tech.name}
-                style={
-                  {
-                    '--tech': tech.color,
-                  } as CSSProperties
-                }
-              >
-                <span className="spec-pill__dot" aria-hidden="true" />
-                {tech.name}
-              </li>
-            ))}
-          </ul>
+        <div className="specs__pin">
+          <div className="specs__featured" data-pin>
+            <p className="caption specs__featured-title">Core stack</p>
+            <ul className="specs__pills">
+              {featuredStack.map((tech) => (
+                <li
+                  className="spec-pill"
+                  key={tech.name}
+                  style={
+                    {
+                      '--tech': tech.color,
+                    } as CSSProperties
+                  }
+                >
+                  <span className="spec-pill__dot" aria-hidden="true" />
+                  {tech.name}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
