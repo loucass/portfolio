@@ -665,22 +665,9 @@ button {
   padding: 4px 10px;
 }
 
-.specs__pin {
-  height: 38vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .specs__featured {
   max-width: 980px;
   margin: 0 auto;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .specs__pin {
-    height: auto;
-  }
 }
 
 .specs__featured-title {

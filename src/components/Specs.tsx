@@ -50,17 +50,8 @@ export function Specs() {
         },
       })
 
-      // The core-stack pills assemble from scattered positions while the
-      // block is pinned for one viewport of scroll.
-      gsap.to('[data-pin]', {
-        scrollTrigger: {
-          trigger: '.specs__pin',
-          start: 'top 65%',
-          end: 'bottom 35%',
-          pin: true,
-          scrub: 0.5,
-        },
-      })
+      // The core-stack pills assemble from scattered positions as the block
+      // enters the viewport.
       gsap.from('.spec-pill', {
         xPercent: () => gsap.utils.random(-80, 80),
         yPercent: () => gsap.utils.random(-200, 80),
@@ -70,9 +61,9 @@ export function Specs() {
         stagger: 0.04,
         clearProps: 'transform,opacity,visibility',
         scrollTrigger: {
-          trigger: '.specs__pin',
-          start: 'top 65%',
-          end: 'bottom 35%',
+          trigger: '.specs__featured',
+          start: 'top 92%',
+          end: 'top 45%',
           scrub: 0.5,
         },
       })
@@ -114,28 +105,26 @@ export function Specs() {
           })}
         </ul>
 
-        <div className="specs__pin">
-          <div className="specs__featured" data-pin>
-            <p className="caption specs__featured-title">Core stack</p>
-            <ul className="specs__pills">
-              {featuredStack.map((tech) => (
-                <li
-                  className="spec-pill"
-                  key={tech.name}
-                  style={
-                    {
-                      '--tech': tech.color,
-                    } as CSSProperties
-                  }
-                >
-                  <span className="spec-pill__dot" aria-hidden="true" />
-                  {tech.name}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="specs__featured">
+          <p className="caption specs__featured-title">Core stack</p>
+          <ul className="specs__pills">
+            {featuredStack.map((tech) => (
+              <li
+                className="spec-pill"
+                key={tech.name}
+                style={
+                  {
+                    '--tech': tech.color,
+                  } as CSSProperties
+                }
+              >
+                <span className="spec-pill__dot" aria-hidden="true" />
+                {tech.name}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+        </div>
     </section>
   )
 }
