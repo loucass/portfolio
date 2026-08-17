@@ -261,6 +261,51 @@ button {
   color: var(--body-on-dark);
 }
 
+/* ─── custom cursor ─── */
+
+.has-cursor,
+.has-cursor * {
+  cursor: none;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--primary);
+  opacity: 0.45;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.cursor-ring.is-hover {
+  width: 48px;
+  height: 48px;
+  opacity: 1;
+  border-color: var(--primary);
+  background: rgba(0, 102, 204, 0.08);
+}
+
 /* ============ NAV ============ */
 
 .nav {

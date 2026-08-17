@@ -1,5 +1,6 @@
 import { Achievements } from './components/Achievements'
 import { Contact } from './components/Contact'
+import { Cursor } from './components/Cursor'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
 import { Footer } from './components/Footer'
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <Cursor />
       <Nav />
       <main>
         <Hero />
