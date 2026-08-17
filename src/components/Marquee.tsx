@@ -6,7 +6,7 @@ import { prefersReducedMotion } from '../lib/anim'
 const ITEM_COUNT = marqueeItems.length
 const STEP = 180 / (ITEM_COUNT - 1)
 const RADIUS = 560
-const SPEED = 6
+const SPEED = 4
 
 /** The stack as a rotating 3D band — items arc around, facing the viewer. */
 export function Marquee() {
