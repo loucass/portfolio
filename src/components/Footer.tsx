@@ -38,7 +38,11 @@ export function Footer() {
                         {link.label}
                       </button>
                     ) : 'href' in link && link.href ? (
-                      <a href={link.href as string} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={link.href as string}
+                        target={link.href.startsWith('http') ? '_blank' : undefined}
+                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
                         {link.label}
                       </a>
                     ) : (
