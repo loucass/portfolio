@@ -14,7 +14,7 @@ export function Projects() {
           Projects
         </p>
         <h2 className="display-lg projects__title" data-reveal>
-          Selected work.
+          Solve Real World Issues.
         </h2>
         <p className="lead-airy projects__sub" data-reveal>
           Systems built end to end — tracked, tested, and shipped.
