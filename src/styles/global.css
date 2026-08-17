@@ -666,7 +666,7 @@ button {
 }
 
 .specs__pin {
-  height: 100vh;
+  height: 38vh;
   display: flex;
   align-items: center;
   justify-content: center;

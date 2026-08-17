@@ -53,8 +53,8 @@ export function Specs() {
         clearProps: 'transform,opacity,visibility',
         scrollTrigger: {
           trigger: '.specs__pin',
-          start: 'top 75%',
-          end: 'bottom 45%',
+          start: 'top 65%',
+          end: 'bottom 35%',
           scrub: 0.5,
         },
       })
@@ -79,7 +79,7 @@ export function Specs() {
               icon: <BoxIcon size={20} />,
             }
             return (
-              <li className="spec-card" data-reveal key={group.label}>
+              <li className="spec-card" key={group.label}>
                 <span className="spec-card__icon" style={{ background: `${meta.color}1f`, color: meta.color }}>
                   {meta.icon}
                 </span>
