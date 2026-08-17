@@ -1,11 +1,36 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
 import { projects } from '../data/content'
-import { useSectionReveal } from '../lib/anim'
+import { prefersReducedMotion, useSectionReveal } from '../lib/anim'
 import { ArrowRightIcon, GithubIcon } from './Icons'
 
 export function Projects() {
   const ref = useRef<HTMLElement>(null)
   useSectionReveal(ref)
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return
+    const ctx = gsap.context(() => {
+      // Project cards assemble from scattered positions as the section
+      // scrolls into view.
+      gsap.from('.project-card', {
+        xPercent: () => gsap.utils.random(-18, 18),
+        yPercent: () => gsap.utils.random(-40, 25),
+        rotation: () => gsap.utils.random(-4, 4),
+        autoAlpha: 0,
+        ease: 'none',
+        stagger: 0.07,
+        clearProps: 'transform,opacity,visibility',
+        scrollTrigger: {
+          trigger: ref.current,
+          start: 'top 80%',
+          end: 'center 45%',
+          scrub: 0.5,
+        },
+      })
+    }, ref)
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section ref={ref} className="tile tile--light projects" id="projects" aria-label="Projects">
@@ -19,7 +44,7 @@ export function Projects() {
 
         <ul className="projects__grid">
           {projects.map((project) => (
-            <li className="project-card" data-reveal key={project.title}>
+            <li className="project-card" key={project.title}>
               <div className="project-card__top">
                 <GithubIcon size={22} />
                 <span className="project-card__repo caption">{project.repo}</span>

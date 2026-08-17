@@ -32,13 +32,31 @@ export function Specs() {
   useEffect(() => {
     if (prefersReducedMotion()) return
     const ctx = gsap.context(() => {
+      // The category cards assemble from scattered positions as the
+      // section scrolls into view.
+      gsap.from('.spec-card', {
+        xPercent: () => gsap.utils.random(-22, 22),
+        yPercent: () => gsap.utils.random(-55, 30),
+        rotation: () => gsap.utils.random(-5, 5),
+        autoAlpha: 0,
+        ease: 'none',
+        stagger: 0.05,
+        clearProps: 'transform,opacity,visibility',
+        scrollTrigger: {
+          trigger: ref.current,
+          start: 'top 78%',
+          end: 'center 40%',
+          scrub: 0.5,
+        },
+      })
+
       // The core-stack pills assemble from scattered positions while the
       // block is pinned for one viewport of scroll.
       gsap.to('[data-pin]', {
         scrollTrigger: {
           trigger: '.specs__pin',
-          start: 'top 75%',
-          end: 'bottom 45%',
+          start: 'top 65%',
+          end: 'bottom 35%',
           pin: true,
           scrub: 0.5,
         },
