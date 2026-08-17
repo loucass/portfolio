@@ -656,6 +656,10 @@ button {
   transform: translateY(-2px);
 }
 
+.spec-pill:active {
+  transform: scale(0.95);
+}
+
 .spec-pill__dot {
   width: 8px;
   height: 8px;
@@ -715,6 +719,10 @@ button {
 .edu-card:hover {
   transform: translateY(-3px);
   border-color: var(--ink-muted-48);
+}
+
+.edu-card:active {
+  transform: scale(0.95);
 }
 
 .edu-card__icon {
@@ -914,6 +922,10 @@ button {
   border-color: var(--ink-muted-48);
 }
 
+.project-card:active {
+  transform: scale(0.95);
+}
+
 .project-card__top {
   display: flex;
   align-items: center;
@@ -1076,6 +1088,10 @@ button {
   text-decoration: none;
   transform: translateY(-3px);
   border-color: var(--ink-muted-48);
+}
+
+.channel-card:active {
+  transform: scale(0.95);
 }
 
 .channel-card__icon {
