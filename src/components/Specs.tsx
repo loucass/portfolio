@@ -35,11 +35,8 @@ export function Specs() {
           Specs
         </p>
         <h2 className="display-lg specs__title" data-reveal>
-          The stack, in color.
+          The stack.
         </h2>
-        <p className="lead-airy specs__sub" data-reveal>
-          Every tool here earned its place in production — under real concurrency.
-        </p>
 
         <ul className="specs__grid">
           {specGroups.map((group) => {

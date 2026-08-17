@@ -16,7 +16,7 @@ export const profile = {
   github: "github.com/loucass",
   githubHref: "https://github.com/loucass",
   summary:
-    "Backend Software Engineer building concurrency-safe, real-time, and event-driven systems with NestJS, Express, Laravel, PostgreSQL, Redis, and RabbitMQ.",
+    "Backend Software Engineer building concurrency-safe, real-time, and event-driven systems.",
 };
 
 export type NavLink = { id: string; label: string };
