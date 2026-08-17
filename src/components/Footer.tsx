@@ -55,9 +55,6 @@ export function Footer() {
           <p className="footer__copy fine-print">
             Copyright © {year} {profile.name}. All rights reserved.
           </p>
-          <p className="footer__note micro-legal">
-            Designed in the spirit of the Apple design language · Built with React, GSAP &amp; Lenis
-          </p>
         </div>
       </div>
     </footer>
