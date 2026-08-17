@@ -58,11 +58,8 @@ export function Achievements() {
           Achievements
         </p>
         <h2 className="display-lg achievements__title" data-ach-line>
-          National level, proven.
+          National level.
         </h2>
-        <p className="lead-airy achievements__sub" data-ach-line>
-          Competing against the country's best — and winning.
-        </p>
 
         <ul className="achievements__grid">
           {achievements.map((a) => {

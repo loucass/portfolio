@@ -15,9 +15,6 @@ export function Experience() {
         <h2 className="display-lg experience__title" data-reveal>
           Built in production, under load.
         </h2>
-        <p className="lead-airy experience__sub" data-reveal>
-          1,000+ concurrent users. Zero race conditions. That's the standard.
-        </p>
 
         <ol className="experience__list">
           {experience.map((job) => (

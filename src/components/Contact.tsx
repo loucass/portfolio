@@ -50,7 +50,7 @@ export function Contact() {
           Let&apos;s build something reliable.
         </h2>
         <p className="lead-airy contact__sub" data-reveal>
-          Open to backend and full-stack engineering roles — remote or on-site in Alexandria.
+          Open to backend and full-stack engineering roles, remote or on-site in Alexandria.
         </p>
 
         <div className="contact__cta" data-reveal>

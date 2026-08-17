@@ -14,7 +14,7 @@ export function Education() {
           Education
         </p>
         <h2 className="display-lg education__title" data-reveal>
-          Where it started.
+          Education.
         </h2>
 
         <ul className="education__grid">

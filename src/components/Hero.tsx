@@ -55,8 +55,8 @@ export function Hero() {
           {profile.role}
         </p>
         <h1 className="hero__headline hero-display">
-          <span className="hero__line" data-hero-line>
-            Introducing <span className="hero__name">Lucas.</span>
+          <span className="hero__line hero-display" data-hero-line>
+            Lucas Monir.
           </span>
           <span className="hero__line" data-hero-line>
             Systems that stay fast,
