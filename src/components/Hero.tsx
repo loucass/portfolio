@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { profile } from '../data/content'
 import { scrollToId } from '../hooks/useLenis'
 import { prefersReducedMotion } from '../lib/anim'
-import { MapPinIcon } from './Icons'
+import { DownloadIcon, MapPinIcon } from './Icons'
 
 export function Hero() {
   const rootRef = useRef<HTMLElement>(null)
@@ -72,6 +72,15 @@ export function Hero() {
           <button type="button" className="btn-primary" onClick={() => scrollToId('experience')}>
             View Experience
           </button>
+          <a
+            className="btn-secondary-pill"
+            href={`${import.meta.env.BASE_URL}LucasMonirResume.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DownloadIcon size={15} />
+            View the CV
+          </a>
           <button
             type="button"
             className="btn-secondary-pill"
